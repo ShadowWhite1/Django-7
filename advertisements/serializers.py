@@ -50,5 +50,4 @@ class AdvertisementSerializer(serializers.ModelSerializer):
                 raise ValidationError('Максимальное количество открытых объявлений - 10')
         return data
     
-#     if request.method == 'POST': открытые объявления могут появиться не только при создании, но и если пользователь хочет открыть уже закрытое объявление, поэтому проверку лучше реализовать так:
-# if метод == POST or (метод == PATCH and статус == OPEN)
+
