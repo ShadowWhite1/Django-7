@@ -45,9 +45,11 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         request = self.context["request"]
         ads_quantity = len(Advertisement.objects.filter(creator=request.user, status='OPEN'))
 
-        if request.method == POST or (request.method == PATCH and request.status == OPEN):
+        if request.method == POST or (request.method == PATCH and data.get('status') == 'OPEN'):
             if ads_quantity >= 10:
                 raise ValidationError('Максимальное количество открытых объявлений - 10')
         return data
+    
+     
     
 
